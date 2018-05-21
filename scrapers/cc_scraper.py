@@ -25,14 +25,14 @@ def get_rating(user):
 
 def fetch():
 	users = [line.rstrip('\n') for line in open('user2.txt')]
-	dic = {}
 	for user in users:
+		dic = {}
+		dic['username'] = user
 		list = get_rank(user)
 		rank1 = list[0]
 		rank2 = list[1]
 		dic['global_rank'] = max(rank1,rank2)
 		dic['country_rank' ]= min(rank1,rank2)
-	for user in users:
 		dic['rating'] = get_rating(user)
 		print(dic)
 if __name__ == '__main__':
